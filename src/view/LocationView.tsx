@@ -81,7 +81,7 @@ class LocationView extends Component<Props, State> {
     }
 
     return (
-      <div>
+      <div className="content">
         <Grid container spacing={3} direction="column" alignItems="center" justify="center">
           <Grid item xs={12}>
             <Typography variant="h3" component="h3" gutterBottom>

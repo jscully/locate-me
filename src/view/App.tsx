@@ -43,8 +43,7 @@ class App extends Component<Props, State> {
   render() {
     return (
       <BrowserRouter>
-        <Switch>
-          <div>
+          <div className="container">
             <TitleBar toggleDrawer={this.toggleDrawer} />
             <LeftMenu
               clickMenuItem={this.clickMenuItem}
@@ -59,17 +58,18 @@ class App extends Component<Props, State> {
                 alignItems="center"
                 justify="center"
                 style={{ minHeight: "90vh" }}>
-                <Route path="/welcome" render={(props) => <Welcome />} />
-                <Route path="/location" render={(props) => <LocationView />} />
-                <Route path="/about" render={(props) => <AboutView />} />
+                <Switch>
+                  <Route path="/welcome" render={(props) => <Welcome />} />
+                  <Route path="/location" render={(props) => <LocationView />} />
+                  <Route path="/about" render={(props) => <AboutView />} />
                 <Redirect to="/welcome" />
+                </Switch>
               </Grid>
               <Grid>
                 <FloatingMenu clickMenuItem={this.clickMenuItem} />
               </Grid>
             </React.Fragment>
           </div>
-        </Switch>
       </BrowserRouter>
     );
   }
