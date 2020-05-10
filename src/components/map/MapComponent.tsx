@@ -1,27 +1,17 @@
 import React, { FC } from "react";
-import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 
 interface Props {
-  google: Object;
   lat: number;
   lon: number;
 }
-
-const mapStyles = {
-  width: "40%",
-  height: "40%",
-};
-
 const API_KEY:string = process.env.REACT_APP_MAP_API_KEY!;
 
 const MapComponent: FC<Props> = (props) => {
   return (
-    <Map google={props.google} style={mapStyles} initialCenter={{ lat: props.lat, lng: props.lon }}>
-      <Marker />
-    </Map>
+      <iframe frameBorder="0" style={{width: "100%", height: "100%"}}
+          src={"https://www.google.com/maps/embed/v1/place?q=" + props.lat + "," + props.lon + "&key=" + API_KEY}>
+      </iframe>
   );
 };
 
-export default GoogleApiWrapper({
-  apiKey: API_KEY,
-})(MapComponent);
+export default MapComponent;
